@@ -39,7 +39,7 @@ int2str(x)'
 %%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Algorithms %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-function [G,x,y]=Decode_T(binary_M,n,k,error_max,query_codeword)
+function [G,x,y]=Decode_T(binary_M,k,error_max,query_codeword)
 error_weight=error_max;
 % d=n-k+1;%define 2^m=n-1
 binary_M=double(binary_M.x);
@@ -115,7 +115,7 @@ end
 function [G,x,y]=decoding(x2,n,k,error_max,query_codeword,proj_n_mat)
 [binary_M2]=project_function2(x2,n,k,proj_n_mat); % input ned row vector
 binary_M2=gf(binary_M2);
-[G,x,y]=Decode_T(binary_M2,n,k,error_max,query_codeword);
+[G,x,y]=Decode_T(binary_M2,k,error_max,query_codeword);
 end
 %%
 function [solut_mat,solut_v,query_v]=get_rows(binary_M_xor,dist_vector,solution,query_codeword)
