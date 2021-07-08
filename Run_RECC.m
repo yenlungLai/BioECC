@@ -2,8 +2,8 @@ clear all
 load('x1.mat')
 load('x2.mat')
 
-n=11;% define n=size 1 of bin_M , n<=2k need holds
-t=1; % maximum is: floor((k)/2);
+n=41;% define n=size 1 of bin_M , n<=2k need holds
+t=4; % maximum is: floor((k)/2);
 k=8; % define k=size2 of bin_M
 
 rx = [ones(1,t), zeros(1,k-t)]; %random key x or weight t
