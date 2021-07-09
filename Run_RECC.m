@@ -2,23 +2,22 @@ clear all
 load('x1.mat')
 load('x2.mat')
 
-n=31;% define n=size 1 of bin_M , n<=2k need holds
-t=4; % maximum is: floor((k)/2);
-k=8; % define k=size2 of bin_M
+n=201;% define n=size 1 of bin_M , n<=2k need holds
+t=1; % maximum is: floor((k)/2);
+k=50; % define k=size2 of bin_M
 
 rx = [ones(1,t), zeros(1,k-t)]; %random key x or weight t
 rx=rx( randperm(k) )';
+% rx=rx';
 
 
 y=[];count=0; countmax=n^3;
 while isempty(y) && count<=countmax
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Encoding %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-x1=x1;
 [binary_M, query_codeword,proj_n_mat]=encode_T(x1',n,k,rx);
-yp=query_codeword;
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Decoding %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-x2=x2;
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Decoding %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% [binary_M,proj_n_mat]=project_function(x2',n,k);
 [G,x,y]=decoding(x2',n,k,t,query_codeword,proj_n_mat);
 
 
