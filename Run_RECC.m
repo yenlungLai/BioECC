@@ -2,7 +2,7 @@ clear all
 load('x1.mat')
 load('x2.mat')
 
-n=41;% define n=size 1 of bin_M , n<=2k need holds
+n=31;% define n=size 1 of bin_M , n<=2k need holds
 t=4; % maximum is: floor((k)/2);
 k=8; % define k=size2 of bin_M
 
@@ -31,9 +31,10 @@ count
 end
 % gflineq(binary_M,y)'
 
-int2str(rx)'
-int2str(x)'
-
+En=['Encoded Key  : ' int2str(rx)'];
+Rec=['Recovered Key: ' int2str(x)'];
+ disp(En)
+  disp(Rec)
 
 
 %%
