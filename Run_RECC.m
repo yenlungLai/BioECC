@@ -2,16 +2,16 @@ clear all
 load('x1.mat')
 load('x2.mat')
 
-n=201;% define n=size 1 of bin_M , n<=2k need holds
+n=21;% define n=size 1 of bin_M , n<=2k need holds
 t=1; % maximum is: floor((k)/2);
-k=50; % define k=size2 of bin_M
+k=20; % define k=size2 of bin_M
 
 rx = [ones(1,t), zeros(1,k-t)]; %random key x or weight t
 rx=rx( randperm(k) )';
 % rx=rx';
 
 
-y=[];count=0; countmax=n^3;
+y=[];count=0; countmax=n^3; % countmax is to the size of polynomial p(n)
 while isempty(y) && count<=countmax
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Encoding %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 [binary_M, query_codeword,proj_n_mat]=encode_T(x1',n,k,rx);
