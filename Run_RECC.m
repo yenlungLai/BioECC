@@ -2,22 +2,24 @@ clear all
 load('x1.mat')
 load('x2.mat')
 
-n=21;% define n=size 1 of bin_M , n<=2k need holds
-t=1; % maximum is: floor((k)/2);
-k=20; % define k=size2 of bin_M
+n=31;% n>k, n needd large to show correctness
+t=3; % maximum is: floor((k)/2);
+k=6; % 
+countmax=n^3; % countmax is to the size of polynomial p(n)
 
-rx = [ones(1,t), zeros(1,k-t)]; %random key x or weight t
+
+%generate random key x or weight t
+rx = [ones(1,t), zeros(1,k-t)]; 
 rx=rx( randperm(k) )';
-% rx=rx';
 
 
-y=[];count=0; countmax=n^3; % countmax is to the size of polynomial p(n)
+
+y=[];count=0; 
 while isempty(y) && count<=countmax
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Encoding %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 [binary_M, query_codeword,proj_n_mat]=encode_T(x1',n,k,rx);
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Decoding %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% [binary_M,proj_n_mat]=project_function(x2',n,k);
 [G,x,y]=decoding(x2',n,k,t,query_codeword,proj_n_mat);
 
 
@@ -28,15 +30,15 @@ end
 count=count+1;
 count
 end
-% gflineq(binary_M,y)'
+
 
 En=['Encoded Key  : ' int2str(rx)'];
 Rec=['Recovered Key: ' int2str(x)'];
  disp(En)
-  disp(Rec)
+ disp(Rec)
 
 
-%%
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Algorithms %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 function [G,x,y]=Decode_T(binary_M,k,error_max,query_codeword)
