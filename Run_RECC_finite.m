@@ -2,10 +2,10 @@ clear all
 load('x1.mat')
 load('x2.mat')
 
-n=31;% n>k, n needd large to show correctness
-t=3; % maximum is: floor((k)/2);
-k=6; % 
-countmax=n^3; % countmax is to the size of polynomial p(n)
+n=11;% n>k, n needd large to show correctness
+t=5; % maximum is: floor((k)/2);
+k=10; % 
+countmax=n; % countmax is to the size of polynomial p(n)
 
 
 %generate random key x or weight t
