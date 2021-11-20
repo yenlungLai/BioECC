@@ -3,9 +3,9 @@ load('x1.mat')
 load('x2.mat')
 
 n=5;% n>k, n needd large to show correctness
-t=2; % maximum is: floor((k)/2);
+t=1; % maximum is: floor((k)/2);
 k=4; % 
-no_codewords=n^2; % countmax is to the size of polynomial p(n)
+no_codewords=n; % countmax is to the size of polynomial p(n)
 
 
 %generate random key x or weight t
