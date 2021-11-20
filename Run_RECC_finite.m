@@ -2,11 +2,11 @@ clear all
 load('x1.mat')
 load('x2.mat')
 
-mbit=7; % mbit control the field size F_mbit for the generator matrix
-n=5;% n>k, n needd large to show correctness
+mbit=8; % mbit control the field size F_mbit for the generator matrix
+n=9;% n>k, n needd large to show correctness
 t=2; % maximum is: floor((k)/2);
-k=4; % 
-no_codewords=n^2; % countmax is to the size of polynomial p(n)
+k=8; % 
+no_codewords=n^4; % countmax is to the size of polynomial p(n)
 
 
 %generate random key x or weight t
@@ -33,7 +33,8 @@ if isempty(y_prime) && trial==no_codewords
 
 end 
 trial=trial+1;
-trial
+disp(['trial ', num2str(trial-1), ' of ',num2str((no_codewords))])
+
 end
 
 

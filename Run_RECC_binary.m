@@ -31,7 +31,7 @@ if isempty(y_prime) && trial==no_codewords
 
 end 
 trial=trial+1;
-trial
+disp(['trial ', num2str(trial-1), ' of ',num2str((no_codewords))])
 end
 
 
